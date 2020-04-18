@@ -26,6 +26,21 @@ Your bundle must have an Info.plist with the following information:
 - CFBundleExecutable (the executable name of the compiled widget class)
 - name (the display name you want to show on the dock label and in Settings
 
+Example of a Info.plist for the battery widget class shown above in the DragonMake example:
+```plist
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleExecutable</key>
+	<string>ExternalBatteryWidget</string>
+	<key>NSPrincipalClass</key>
+	<string>ExternalBatteryWidget</string>
+	<key>name</key>
+	<string>Batteries 3rd Party</string>
+</dict>
+</plist>```
+
 Multipla will get the compiled version of your class and create an instance of it on the dock for use when needed.
 
 In order to make this possible, have your class include the following methods:
