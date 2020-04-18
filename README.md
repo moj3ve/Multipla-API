@@ -27,7 +27,7 @@ Your bundle must have an Info.plist with the following information:
 - name (the display name you want to show on the dock label and in Settings
 
 Example of a Info.plist for the battery widget class shown above in the DragonMake example:
-```plist
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
