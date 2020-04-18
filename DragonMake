@@ -1,0 +1,17 @@
+package_name: Multipla_API_Example
+install_command: killall -9 SpringBoard
+
+ExternalBatteryWidget:
+    dir: Widget
+    type: bundle
+    files:
+        - BatteryWidget.m
+    archs:
+        - arm64
+        - arm64e
+    frameworks:
+        - BatteryCenter
+    stage: 
+        - mkdir -p .dragon/_/Library/Multipla/Widgets/BatteryWidget.bundle/
+        - cp Resources/Info.plist .dragon/_/Library/Multipla/Widgets/BatteryWidget.bundle/
+    install_location: "/Library/Multipla/Widgets/BatteryWidget.bundle/"
