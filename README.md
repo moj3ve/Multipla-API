@@ -5,8 +5,12 @@ A guide of the API included with Multipla!
 Multipla loads bundles of widgets located at /Library/Multipla/Widgets. To add your own widget, simply make a DragonBuild/Theos bundle project. An example of a DragonMake for a third party widget is as follows (don't make a Battery Widget, Multipla already has one):
 
 ```yaml
+
+package_name: Multipla_API_Example
+install_command: killall -9 SpringBoard
+
 ExternalBatteryWidget:
-    dir: Widgets
+    dir: Widget
     type: bundle
     files:
         - BatteryWidget.m
@@ -16,9 +20,10 @@ ExternalBatteryWidget:
     frameworks:
         - BatteryCenter
     stage: 
-        - mkdir -p ".dragon/_/Library/Multipla/Widgets/"
-        - cp Info.plist ".dragon/_/Library/Multipla/Widgets/BatteryWidget.bundle/"
+        - mkdir -p .dragon/_/Library/Multipla/Widgets/BatteryWidget.bundle/
+        - cp Resources/Info.plist .dragon/_/Library/Multipla/Widgets/BatteryWidget.bundle/
     install_location: "/Library/Multipla/Widgets/BatteryWidget.bundle/"
+
  ```
 
 Your bundle must have an Info.plist with the following information:
