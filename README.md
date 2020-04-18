@@ -31,3 +31,17 @@ In order to make this possible, have your class include the following methods:
     -(void)updateWidget;
 ```
 The update widget method does not have to include anything if your widget does not need to update it's data when it is about to show. You can leave this method blank, but make sure to include it, for Multipla will attempt to call this method when your widget is on queue to show.
+
+You can do anything you like in the init method, and you may include other methods as you see fit. In order to tell if your widget is hidden or showing from the class itself, you can override the setter method for the property `alpha`.
+
+For example:
+```objc
+-(void)setAlpha:(CGFloat)arg1 {
+  if(arg1==0) {
+    isHidden=YES;
+  } else {
+    isHidden=NO;
+  }
+  %orig;
+}
+```
