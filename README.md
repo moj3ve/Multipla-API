@@ -2,25 +2,28 @@
 A guide of the API included with Multipla!
 
 ## Getting Started
-Multipla loads bundles of widgets located at /Library/Multipla/Widgets. To add your own widget, simply make a DragonBuild/Theos bundle project. An example of a DragonMake for a third party widget is as follows:
+Multipla loads bundles of widgets located at /Library/Multipla/Widgets. To add your own widget, simply make a DragonBuild/Theos bundle project. An example of a DragonMake for a third party widget is as follows (don't make a Battery Widget, Multipla already has one):
 
 ```yaml
-WIDGETNAME:
-    dir: WIDGETNAME
+ExternalBatteryWidget:
+    dir: Widgets
     type: bundle
     files:
-        - Widget.m
+        - BatteryWidget.m
     archs:
         - arm64
         - arm64e
+    frameworks:
+        - BatteryCenter
     stage: 
         - mkdir -p ".dragon/_/Library/Multipla/Widgets/"
-        - cp Info.plist ".dragon/_/Library/Multipla/Widgets/WIDGETNAME"
-    install_location: "/Library/Multipla/Widgets/WIDGETNAME/"
+        - cp Info.plist ".dragon/_/Library/Multipla/Widgets/BatteryWidget.bundle/"
+    install_location: "/Library/Multipla/Widgets/BatteryWidget.bundle/"
  ```
 
 Your bundle must have an Info.plist with the following information:
-- NSExecutable (the class of which your widget is, for example: EXPExternalWidget)
+- NSPrincipalClass (the class of which your widget is, for example: EXPExternalWidget)
+- CFBundleExecutable (the executable name of the compiled widget class)
 - name (the display name you want to show on the dock label and in Settings
 
 Multipla will get the compiled version of your class and create an instance of it on the dock for use when needed.
