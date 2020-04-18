@@ -30,18 +30,21 @@ In order to make this possible, have your class include the following methods:
     -(instancetype)initWithFrame:(CGRect)arg1;
     -(void)updateWidget;
 ```
-The update widget method does not have to include anything if your widget does not need to update it's data when it is about to show. You can leave this method blank, but make sure to include it, for Multipla will attempt to call this method when your widget is on queue to show.
+The update widget method does not have to include anything if your widget does not need to update it's data when it is about to show. You can leave this method blank, but make sure to include it..
 
-You can do anything you like in the init method, and you may include other methods as you see fit. In order to tell if your widget is hidden or showing from the class itself, you can override the setter method for the property `alpha`.
+You can do anything you like in the init method, and you may include other methods as you see fit. In order to tell if your widget is hidden or showing from the class itself, you can override the setter method for the property `alpha`. Note you do not need to manually call `[self updateWidget];` in most cases, with some exceptions, as Multipla calls this when your widget is about to show.
 
 For example:
 ```objc
 -(void)setAlpha:(CGFloat)arg1 {
   if(arg1==0) {
-    isHidden=YES;
+    //it is hidden
+    //do stuff here
   } else {
-    isHidden=NO;
+    //not hidden
   }
   %orig;
 }
 ```
+
+If you need to refresh your widget while it is showing, you can make use of system post notifications being sent, or even include a tweak subproject for the purpose of sending these notifications to update whenever you choose. Just add an observer in the init method for the notification you want to listen for, and have it call the selector `updateWidget`.
