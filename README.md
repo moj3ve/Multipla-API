@@ -39,7 +39,8 @@ Example of a Info.plist for the battery widget class shown above in the DragonMa
 	<key>name</key>
 	<string>Batteries 3rd Party</string>
 </dict>
-</plist>```
+</plist>
+```
 
 Multipla will get the compiled version of your class and create an instance of it on the dock for use when needed.
 
