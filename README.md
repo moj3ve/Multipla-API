@@ -67,3 +67,6 @@ For example:
 ```
 
 If you need to refresh your widget while it is showing, you can make use of system post notifications being sent, or even include a tweak subproject for the purpose of sending these notifications to update whenever you choose. Just add an observer in the init method for the notification you want to listen for, and have it call the selector `updateWidget`.
+
+## Closing notes
+If you are confused, pm me or take a look at the example project in this repository. The widget will appear in the select widgets page in Multipla's settings.
